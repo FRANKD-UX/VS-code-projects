@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>HTML and CSS for Complete Beginners: Example 2-11-2</title>
+
+		<!-- This CSS and font is purely for presentational purposes. -->
+		<link rel="stylesheet" href="css/presentation.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet" />
+	</head>
+
+	<body class="flip">
+		<section class="learn">
+			<!-- Practice area start -->
+			
+			<h1>Your Order</h1>
+			
+			<form action="" method="post">
+				<div>
+					<div>
+						<label for="order-name">Name</label> <br />
+						<input type="text" id="order-name" name="order-name"  autofocus placeholder="Enter full name" />
+					</div>
+
+					<div>
+						<label for="order-email">Email</label> <br />
+						<input type="email" id="order-email" name="order-email"  value="Frankdafrica@gmail.com" disabled />
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<label for="order-address-1">Address</label> <br />
+						<input type="text" id="order-address-1" name="order-address-1"  />
+						<input type="text" id="order-address-2" name="order-address-2"  />
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<label for="order-city">City</label> <br />
+						<input type="text" id="order-city" name="order-city"  />
+					</div>
+
+					<div>
+						<label for="order-state">State</label> <br />
+						 <select id="order-state" name="order-state">
+							<option value="Gauteng">Gauteng</option>
+							<option value="Limpopo">Limpopo</option>
+							<option value="KZN">KZN</option>
+							<option value="Mpumalanga">Mpumalanga</option>
+						 </select>
+					</div>
+
+					<div>
+						<label for="order-zip">Zip</label> <br />
+						<input type="text" id="order-zip" name="order-zip"  />
+					</div>
+				</div>
+
+				<div>
+					<div>
+						<label>What colors should we send you?</label> <br />
+						<label for ="sample-white">
+							<input type="checkbox" id="sample-white" name="sample-white" value="white" disabled />
+							White
+						</label>
+						<label for ="sample-Magenta">
+							<input type="checkbox" id="sample-Magenta" name="sample-Magenta" value="Magenta" />
+							Magenta
+						</label>
+						<label for ="sample-coral">
+							<input type="checkbox" id="sample-coral" name="sample-coral" value="coral" />
+							coral
+						</label>
+						<label for ="sample-Burgandy">
+							<input type="checkbox" id="sample-Burgandy" name="sample-Burgandy" value="Burgandy" />
+							Burgandy
+						</label>
+						<label for ="sample-Charcoal">
+							<input type="checkbox" id="sample-Charcoal" name="sample-Charcoal" value="Charcoal" />
+							Charcoal
+						</label>
+					</div>
+				</div>
+
+				<div>
+					<label>how large is your team</label><br>
+					<label for ="team-small">
+						<input type="radio" id="team-small" name="team-size" value="1-5" />
+						1-5 people
+					</label>
+
+					<label for="medium-team-size">
+						<input type="radio" id="medium-team-size" name="team-size" value="6-10" checked/>
+						6-10 people
+					</label>
+
+					<label for="large-team-size">
+						<input type="radio" id="large-team-size" name="team-size" value="10+" />
+						10+people
+				</div>
+
+				<div>
+					<label>Comments</label><br>
+					<textarea name="order-comments" id="order-comments" rows="4" cols="50" placeholder="Please also send me one of your catalouges so I can show your products to other people in my industry"></textarea>
+				</div>
+
+				<div>
+					<input type="checkbox" id="sign-up" name="sign-up" value="yes" required />
+					<label for="sign-up">Sign me up for special offers</label>
+					
+					
+					<button type="submit">Place order </button>
+				</div>
+				
+			
+
+
+			<!-- Practice area end -->
+		</section>
+
+		<section class="preview" data-content="lesson 2-11: Using Forms and Buttons">
+			<img width="903px" src="images/reference/order-form.png" alt="Reference image" />
+		</section>
+	</body>
+</html>
