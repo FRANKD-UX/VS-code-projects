@@ -4,23 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive HTML Tutorial</title>
-  
+  <link rel="stylesheet" href="styles.css">
   <!-- Include CodeMirror for code editing -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
-  
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header>
     <h1>Learn HTML: Interactive Coding Tutorial</h1>
+    <button id="dark-mode-toggle" class="btn">Toggle Dark Mode</button>
   </header>
   
   <main>
-    <div id="progress-indicator" class="progress-indicator">
-      <!-- Progress dots will be added here dynamically -->
-    </div>
+    <div id="progress-indicator" class="progress-indicator"></div>
 
     <div id="lesson-container" class="lesson-container">
       <h2 id="lesson-title">Loading lesson...</h2>
@@ -63,7 +59,10 @@
   <footer>
     <p>© 2025 HTML Tutorial. Happy coding!</p>
   </footer>
-  
+
+  <!-- Loading Spinner -->
+  <div id="loading-spinner" class="loading-spinner"></div>
+
   <!-- Include CodeMirror and its modes -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>

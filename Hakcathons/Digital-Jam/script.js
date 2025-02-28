@@ -20,9 +20,16 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('next-lesson-btn').addEventListener('click', loadNextLesson);
   document.getElementById('reset-code-btn').addEventListener('click', resetCode);
   document.getElementById('hint-btn').addEventListener('click', showHint);
-  
+  document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
+
   // Load the first lesson
   loadLesson(currentLessonIndex);
+
+  // Load dark mode preference
+  loadDarkModePreference();
+
+  // Load progress
+  loadProgress();
 });
 
 // Function to load a lesson by index
@@ -57,14 +64,14 @@ function loadLesson(index) {
 
 // Run the code in the editor
 function runCode() {
-  const code = editor.getValue();
-  const htmlPreview = document.getElementById('html-preview');
-  
-  // Update the HTML preview
-  htmlPreview.srcdoc = code;
-  
-  // Validate the code
-  validateCode(code);
+  showLoadingSpinner();
+  setTimeout(() => {
+    const code = editor.getValue();
+    const htmlPreview = document.getElementById('html-preview');
+    htmlPreview.srcdoc = code;
+    validateCode(code);
+    hideLoadingSpinner();
+  }, 500); // Simulate a delay for demonstration
 }
 
 // Validate the user's code
@@ -95,6 +102,7 @@ function validateCode(code) {
     validationResult.textContent = '✅ Great job! You completed this lesson successfully.';
     validationResult.className = 'validation-success';
     document.getElementById('next-lesson-btn').style.display = 'block';
+    saveProgress(); // Save progress when a lesson is completed
   } else {
     validationResult.textContent = `❌ ${errorMessage}`;
     validationResult.className = 'validation-error';
@@ -164,3 +172,51 @@ function updateProgressIndicator() {
     progressContainer.appendChild(dot);
   }
 }
+
+// Dark mode toggle
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  // Save dark mode preference
+  localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+}
+
+// Load dark mode preference
+function loadDarkModePreference() {
+  const darkMode = localStorage.getItem('darkMode') === 'true';
+  if (darkMode) {
+    document.body.classList.add('dark-mode');
+  }
+}
+
+// Save progress with localStorage
+function saveProgress() {
+  localStorage.setItem('currentLessonIndex', currentLessonIndex);
+}
+
+// Load progress with localStorage
+function loadProgress() {
+  const savedIndex = localStorage.getItem('currentLessonIndex');
+  if (savedIndex !== null) {
+    currentLessonIndex = parseInt(savedIndex, 10);
+    loadLesson(currentLessonIndex);
+  }
+}
+
+// Show loading spinner
+function showLoadingSpinner() {
+  document.getElementById('loading-spinner').style.display = 'block';
+}
+
+// Hide loading spinner
+function hideLoadingSpinner() {
+  document.getElementById('loading-spinner').style.display = 'none';
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', function(event) {
+  if (event.ctrlKey && event.key === 'Enter') {
+    runCode();
+  } else if (event.ctrlKey && event.key === 'r') {
+    resetCode();
+  }
+});
