@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive HTML Tutorial</title>
+  
+  <!-- Include CodeMirror for code editing -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Learn HTML: Interactive Coding Tutorial</h1>
+  </header>
+  
+  <main>
+    <div id="progress-indicator" class="progress-indicator">
+      <!-- Progress dots will be added here dynamically -->
+    </div>
+
+    <div id="lesson-container" class="lesson-container">
+      <h2 id="lesson-title">Loading lesson...</h2>
+      
+      <div class="lesson-content">
+        <div class="explanation-section">
+          <h3>Explanation</h3>
+          <p id="lesson-explanation"></p>
+          
+          <h3>Instructions</h3>
+          <p id="lesson-instructions"></p>
+          
+          <div id="validation-result" class="validation-result"></div>
+        </div>
+        
+        <div class="code-section">
+          <div class="editor-header">
+            <h3>HTML Editor</h3>
+            <div class="editor-controls">
+              <button id="run-code-btn" class="btn btn-primary">Run & Preview</button>
+              <button id="reset-code-btn" class="btn">Reset</button>
+              <button id="hint-btn" class="btn">Hint</button>
+            </div>
+          </div>
+          
+          <textarea id="code-editor"></textarea>
+          
+          <div class="preview-container">
+            <h3>HTML Preview</h3>
+            <iframe id="html-preview" class="html-preview"></iframe>
+          </div>
+        </div>
+      </div>
+      
+      <div class="navigation">
+        <button id="next-lesson-btn" class="btn btn-success" style="display: none;">Next Lesson →</button>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <p>© 2025 HTML Tutorial. Happy coding!</p>
+  </footer>
+  
+  <!-- Include CodeMirror and its modes -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/htmlmixed/htmlmixed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closetag.min.js"></script>
+  
+  <!-- Include lesson data -->
+  <script src="lessons.js"></script>
+  
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

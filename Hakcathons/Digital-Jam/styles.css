@@ -1,0 +1,216 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+  }
+  
+  header {
+    background-color: #e34c26;  /* HTML5 color */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  h1, h2, h3 {
+    margin-bottom: 1rem;
+  }
+  
+  /* Progress indicator */
+  .progress-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .progress-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+  }
+  
+  .progress-dot.current {
+    background-color: #e34c26;
+    transform: scale(1.2);
+  }
+  
+  .progress-dot.completed {
+    background-color: #5cb85c;
+  }
+  
+  /* Lesson container */
+  .lesson-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+  }
+  
+  .lesson-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .lesson-content {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Explanation section */
+  .explanation-section {
+    line-height: 1.8;
+  }
+  
+  .explanation-section p {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Validation result */
+  .validation-result {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    font-weight: 500;
+  }
+  
+  .validation-success {
+    background-color: rgba(92, 184, 92, 0.2);
+    color: #2d6a2d;
+  }
+  
+  .validation-error {
+    background-color: rgba(217, 83, 79, 0.2);
+    color: #a94442;
+  }
+  
+  .validation-hint {
+    background-color: rgba(240, 173, 78, 0.2);
+    color: #8a6d3b;
+  }
+  
+  /* Code section */
+  .code-section {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .editor-controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  /* Make the CodeMirror editor take available height */
+  .CodeMirror {
+    height: 300px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
+  
+  /* HTML Preview */
+  .preview-container {
+    margin-top: 1rem;
+  }
+  
+  .html-preview {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+  }
+  
+  /* Button styles */
+  .btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+  
+  .btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+  
+  .btn-primary {
+    background-color: #e34c26;
+    color: white;
+  }
+  
+  .btn-success {
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  /* Navigation */
+  .navigation {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+  }
+  
+  /* Animation for success/completion */
+  @keyframes success-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(92, 184, 92, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(92, 184, 92, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(92, 184, 92, 0); }
+  }
+  
+  .btn-success {
+    animation: success-pulse 2s infinite;
+  }
+  
+  /* HTML Tag highlighting in the editor */
+  .cm-tag {
+    color: #f92672 !important;
+  }
+  
+  .cm-attribute {
+    color: #a6e22e !important;
+  }
+  
+  .cm-string {
+    color: #e6db74 !important;
+  }
+  
+  .cm-bracket {
+    color: #f8f8f2 !important;
+  }
