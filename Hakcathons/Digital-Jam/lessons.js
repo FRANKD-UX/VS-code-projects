@@ -45,7 +45,8 @@ const lessons = [
         pattern: /<body>[\s\S]*<\/body>/i,
         message: "Your document should include a body section"
       }
-    ]
+    ],
+    // audioFile: "audio/lesson1.mp3" // Commented out for now
   },
   {
     id: 2,
@@ -80,7 +81,8 @@ const lessons = [
         pattern: /<p>[\s\S]*<\/p>[\s\S]*<p>[\s\S]*<\/p>/i,
         message: "Include at least two paragraph elements"
       }
-    ]
+    ],
+    // audioFile: "audio/lesson2.mp3" // Commented out for now
   },
   {
     id: 3,
@@ -122,6 +124,7 @@ const lessons = [
         pattern: /<a[^>]+target=["']_blank["'][^>]*>/i,
         message: "Your link should have target=\"_blank\" to open in a new tab"
       }
-    ]
+    ],
+    // audioFile: "audio/lesson3.mp3" // Commented out for now
   }
 ];

@@ -13,9 +13,49 @@
   <header>
     <h1>Learn HTML: Interactive Coding Tutorial</h1>
     <button id="dark-mode-toggle" class="btn">Toggle Dark Mode</button>
+    <div class="profile-container">
+      <div class="profile-icon" onclick="toggleDropdown()">
+        <img src="profile-icon.png" alt="Profile Icon" width="30" height="30">
+      </div>
+      <div id="dropdown-menu" class="dropdown-menu">
+        <a href="#">ME</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Log In / Log Out</a>
+        <a href="#">Support</a>
+      </div>
+    </div>
   </header>
   
+  <aside id="lessons-sidebar" class="lessons-sidebar">
+    <h3>Lessons</h3>
+    <div id="progress-bar-container" class="progress-bar-container">
+      <div id="progress-bar" class="progress-bar"></div>
+      <span id="progress-percentage">0%</span>
+    </div>
+    <ul id="lessons-list">
+      <!-- Lessons will be added dynamically here -->
+    </ul>
+  </aside>
+  
   <main>
+    <div id="audio-section" class="audio-section">
+        <h3>Listen to the Instructor</h3>
+        <audio id="lesson-audio" controls>
+          <source id="audio-source" src="" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <div class="audio-controls">
+          <button id="play-pause-btn" class="btn">Play</button>
+          <button id="rewind-btn" class="btn">Rewind 10s</button>
+          <button id="fast-forward-btn" class="btn">Fast Forward 10s</button>
+          <select id="playback-speed">
+            <option value="0.5">0.5x</option>
+            <option value="1" selected>1x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2">2x</option>
+          </select>
+        </div>
+      </div>
     <div id="progress-indicator" class="progress-indicator"></div>
 
     <div id="lesson-container" class="lesson-container">

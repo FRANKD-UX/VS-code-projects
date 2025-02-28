@@ -30,6 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Load progress
   loadProgress();
+
+  // Populate lessons sidebar
+  populateLessonsSidebar();
+
+  // Update progress bar
+  updateProgressBar();
 });
 
 // Function to load a lesson by index
@@ -103,6 +109,7 @@ function validateCode(code) {
     validationResult.className = 'validation-success';
     document.getElementById('next-lesson-btn').style.display = 'block';
     saveProgress(); // Save progress when a lesson is completed
+    updateProgressBar(); // Update the progress bar
   } else {
     validationResult.textContent = `❌ ${errorMessage}`;
     validationResult.className = 'validation-error';
@@ -218,5 +225,58 @@ document.addEventListener('keydown', function(event) {
     runCode();
   } else if (event.ctrlKey && event.key === 'r') {
     resetCode();
+  }
+});
+
+// Function to calculate progress percentage
+function calculateProgress() {
+  const completedLessons = lessons.filter((lesson, index) => index < currentLessonIndex).length;
+  const totalLessons = lessons.length;
+  const progressPercentage = (completedLessons / totalLessons) * 100;
+  return progressPercentage;
+}
+
+// Function to update the progress bar
+function updateProgressBar() {
+  const progressPercentage = calculateProgress();
+  const progressBar = document.getElementById('progress-bar');
+  const progressPercentageText = document.getElementById('progress-percentage');
+
+  progressBar.style.width = `${progressPercentage}%`;
+  progressPercentageText.textContent = `${Math.round(progressPercentage)}%`;
+}
+
+// Populate lessons sidebar
+function populateLessonsSidebar() {
+  const lessonsList = document.getElementById('lessons-list');
+  lessons.forEach(lesson => {
+    const listItem = document.createElement('li');
+    const lessonLink = document.createElement('a');
+    lessonLink.href = '#';
+    lessonLink.textContent = lesson.title;
+    lessonLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      currentLessonIndex = lesson.id - 1; // Adjust for zero-based index
+      loadLesson(currentLessonIndex);
+      updateProgressBar(); // Update the progress bar
+    });
+    listItem.appendChild(lessonLink);
+    lessonsList.appendChild(listItem);
+  });
+}
+
+// Function to toggle the dropdown menu
+function toggleDropdown() {
+  const dropdownMenu = document.getElementById('dropdown-menu');
+  dropdownMenu.classList.toggle('active');
+}
+
+// Close the dropdown menu if the user clicks outside of it
+document.addEventListener('click', function(event) {
+  const profileContainer = document.querySelector('.profile-container');
+  const dropdownMenu = document.getElementById('dropdown-menu');
+
+  if (!profileContainer.contains(event.target)) {
+    dropdownMenu.classList.remove('active');
   }
 });

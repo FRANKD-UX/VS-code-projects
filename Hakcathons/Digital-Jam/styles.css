@@ -309,3 +309,165 @@ body.dark-mode .html-preview::-webkit-scrollbar-thumb:hover {
   margin: 2rem auto;
   display: none; /* Hidden by default */
 }
+
+/* Audio section 
+.audio-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.audio-section h3 {
+  margin-bottom: 1rem;
+}
+
+.audio-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.audio-controls select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+*/
+/* Lessons sidebar */
+.lessons-sidebar {
+  width: 250px;
+  background-color: #353746;
+  color: white;
+  padding: 1rem;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.lessons-sidebar h3 {
+  margin-bottom: 1rem;
+}
+
+.lessons-sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lessons-sidebar li {
+  margin-bottom: 0.5rem;
+}
+
+.lessons-sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.lessons-sidebar a:hover {
+  background-color: #e34c26;
+}
+
+/* Adjust main content to account for sidebar */
+main {
+  margin-left: 270px; /* Add this line */
+}
+
+/* Progress bar styles */
+.progress-bar-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #5cb85c; /* Green color for progress */
+  border-radius: 5px;
+  width: 0%; /* Initial width */
+  transition: width 0.3s ease;
+}
+
+#progress-percentage {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Profile Icon and Dropdown Menu */
+.profile-container {
+  position: relative;
+  display: inline-block;
+  margin-left: auto; /* Push the profile icon to the right */
+}
+
+.profile-icon {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.profile-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-icon img {
+  border-radius: 50%;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  min-width: 150px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show dropdown menu when active */
+.dropdown-menu.active {
+  display: block;
+}
+
+/* Header Layout */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #353746;
+  color: white;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+header .btn {
+  margin-left: 1rem;
+}
