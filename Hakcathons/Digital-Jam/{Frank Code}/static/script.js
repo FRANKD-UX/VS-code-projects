@@ -180,20 +180,52 @@ function updateProgressIndicator() {
   }
 }
 
-// Dark mode toggle
-function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-  // Save dark mode preference
-  localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-}
-
-// Load dark mode preference
+// Load dark mode preference (improved version)
 function loadDarkModePreference() {
+  // Check localStorage, default to false if not set
   const darkMode = localStorage.getItem('darkMode') === 'true';
-  if (darkMode) {
-    document.body.classList.add('dark-mode');
+  
+  // Always explicitly set the class (removes ambiguity)
+  document.body.classList.toggle('dark-mode', darkMode);
+  
+  // Update the toggle button state if it exists
+  const toggleBtn = document.getElementById('dark-mode-toggle');
+  if (toggleBtn) {
+    toggleBtn.textContent = darkMode ? '☀️ Light Mode' : '🌙 Dark Mode';
+    toggleBtn.setAttribute('aria-checked', darkMode);
   }
 }
+
+// Toggle function (more robust)
+function toggleDarkMode() {
+  const isDark = !document.body.classList.contains('dark-mode');
+  
+  // Set the class and storage simultaneously
+  document.body.classList.toggle('dark-mode', isDark);
+  localStorage.setItem('darkMode', isDark);
+  
+  // Update UI immediately
+  loadDarkModePreference();
+  
+  // Optional: Log for debugging
+  console.log('Dark mode set to:', isDark);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  loadDarkModePreference();
+  
+  // Set up event listener (with error handling)
+  const toggleBtn = document.getElementById('dark-mode-toggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', toggleDarkMode);
+  } else {
+    console.warn('Dark mode toggle button not found');
+  }
+  
+  // Force reset if needed (debugging only)
+  // localStorage.removeItem('darkMode');
+});
 
 // Save progress with localStorage
 function saveProgress() {
@@ -280,3 +312,47 @@ document.addEventListener('click', function(event) {
     dropdownMenu.classList.remove('active');
   }
 });
+
+//APi integration
+const API_BASE = 'http://localhost/your-project/api';
+
+async function login(email, password) {
+    const response = await fetch(`${API_BASE}/auth.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            action: 'login',
+            email,
+            password
+        })
+    });
+    return await response.json();
+}
+
+async function register(email, password) {
+    const response = await fetch(`${API_BASE}/auth.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            action: 'register',
+            email,
+            password
+        })
+    });
+    return await response.json();
+}
+
+async function saveProgress(lessonId, completed) {
+    const response = await fetch(`${API_BASE}/progress.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ lesson_id: lessonId, completed })
+    });
+    return await response.json();
+}
+
+async function loadProgress() {
+    const response = await fetch(`${API_BASE}/progress.php`);
+    return await response.json();
+}
+

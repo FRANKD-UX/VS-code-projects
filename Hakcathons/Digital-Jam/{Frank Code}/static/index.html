@@ -18,10 +18,18 @@
         <img src="profile-icon.png" alt="Profile Icon" width="30" height="30">
       </div>
       <div id="dropdown-menu" class="dropdown-menu">
-        <a href="#">ME</a>
-        <a href="#">Dashboard</a>
-        <a href="#">Log In / Log Out</a>
+        <div id="login-form">
+          <input type="email" id="login-email" placeholder="Email">
+          <input type="password" id="login-password" placeholder="Password">
+          <button id="login-btn">Log In</button>
+          <button id="register-btn">Register</button>
+        </div>
+        <div id="user-actions" style="display: none;">
+          <a href="#" id="logout-btn">Log Out</a>
+          <a href="#">Dashboard</a>
+        </div>
         <a href="#">Support</a>
+        <a href="#">Dashboard</a>
       </div>
     </div>
   </header>
