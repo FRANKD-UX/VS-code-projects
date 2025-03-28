@@ -314,8 +314,24 @@ document.addEventListener('click', function(event) {
 });
 
 //APi integration
-const API_BASE = 'http://localhost/your-project/api';
+const API_BASE = 'http://localhost/frank-code/api';
 
+// User Registration
+async function register(username, email, password) {
+    const response = await fetch(`${API_BASE}/auth.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            action: 'register',
+            username,
+            email,
+            password
+        })
+    });
+    return await response.json();
+}
+
+// User Login
 async function login(email, password) {
     const response = await fetch(`${API_BASE}/auth.php`, {
         method: 'POST',
@@ -324,35 +340,71 @@ async function login(email, password) {
             action: 'login',
             email,
             password
-        })
+        }),
+        credentials: 'include' // For session cookies
     });
     return await response.json();
 }
 
-async function register(email, password) {
-    const response = await fetch(`${API_BASE}/auth.php`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            action: 'register',
-            email,
-            password
-        })
-    });
-    return await response.json();
-}
-
+// Save Progress
 async function saveProgress(lessonId, completed) {
     const response = await fetch(`${API_BASE}/progress.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ lesson_id: lessonId, completed })
+        body: JSON.stringify({ lesson_id: lessonId, completed }),
+        credentials: 'include'
     });
     return await response.json();
 }
 
+// Load Progress
 async function loadProgress() {
-    const response = await fetch(`${API_BASE}/progress.php`);
+    const response = await fetch(`${API_BASE}/progress.php`, {
+        credentials: 'include'
+    });
     return await response.json();
 }
 
+// Get Lessons
+async function getLessons() {
+    const response = await fetch(`${API_BASE}/lessons.php`);
+    return await response.json();
+}
+
+async function register(email, password) {
+  try {
+      const response = await fetch('your_php_endpoint.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              action: 'register',
+              email: email,
+              password: password
+          })
+      });
+      return await response.json();
+  } catch (error) {
+      console.error('Registration error:', error);
+  }
+}
+
+async function login(email, password) {
+  try {
+      const response = await fetch('your_php_endpoint.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              action: 'login',
+              email: email,
+              password: password
+          })
+      });
+      return await response.json();
+  } catch (error) {
+      console.error('Login error:', error);
+  }
+}
