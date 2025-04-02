@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My potfolio</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <style> 
+        /* Header */
+header {
+    display: flex;
+    justify-content: space-between; /* Pushes logo and nav to opposite ends */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f4f4f4; /* Optional styling */
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Bio on one side, image on the other */
+    gap: 30px;
+    padding: 20px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.bio {
+    flex: 1; /* Allows bio to take up remaining space */
+}
+
+/* Footer */
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #222; /* Optional styling */
+    color: white; /* Optional styling */
+}
+
+.social-media {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}     
+    </style>
+</head>
+<body>
+    <header>
+        <div>Logo</div>
+    <nav>
+        <ul>
+            <li>Home</li>
+            <li>About me</li>
+            <li>Contact Us</li>
+        </ul>
+    </nav>
+
+    </header>
+    <main>
+        <div>
+            <iframe width="60%" height="315" src="https://www.youtube.com/embed/y-OghdKUpUY?si=GVmTcVJgerC4gvMI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div>
+            <section class="profile">
+                <img src="me.jpg" alt="Profile Picture" class="profile-pic">
+                <div class="bio">
+                    <h2>Bio</h2>
+                    <p>Passionate about web development, troubleshooting, and refining interactive design. Always eager to explore new coding challenges! effecient in the following technologies</p>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                        <li>React</li>
+                        <li>Node.js</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+            <ul class="social-media">
+                <li><a href="https://www.linkedin.com/your-profile" target="_blank">
+                    <img src="linkedin.png" alt="LinkedIn">
+                </a></li>
+                <li><a href="https://github.com/your-profile" target="_blank">
+                    <img src="github.png" alt="GitHub">
+                </a></li>
+                <li><a href="https://twitter.com/your-profile" target="_blank">
+                    <img src="twitter.png" alt="Twitter">
+                </a></li>
+            
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
